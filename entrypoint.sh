@@ -10,7 +10,7 @@ nginx
 
 /etc/init.d/shadowsocks-libev start
 
-nohup kcptun -c /etc/kcptun.json &
-
+#nohup kcptun -c /etc/kcptun.json &
+kcptun -c /etc/kcptun.json
 #wc
-tail -f /var/log/nginx/error.log > /dev/null
+#tail -f /var/log/nginx/error.log > /dev/null
