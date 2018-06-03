@@ -1,12 +1,12 @@
 #!/bin/bash
 
-wget https://dream.ren/down/other/nginx_docker.conf -O /etc/nginx/nginx.conf --no-check-certificate
+#wget https://dream.ren/down/other/nginx_docker.conf -O /etc/nginx/nginx.conf --no-check-certificate
 
 /etc/init.d/ssh restart
 
-nginx -t
+#nginx -t
 
-nginx
+#nginx
 
 /etc/init.d/shadowsocks-libev start
 
