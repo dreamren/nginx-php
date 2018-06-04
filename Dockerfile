@@ -22,11 +22,6 @@ RUN wget -q -O- https://api.github.com/repos/xtaci/kcptun/releases/latest --no-c
 	mv server_linux_amd64 /usr/local/bin/kcptun && \
 	rm -f client_linux_amd64
 
-#复制配置文件
-COPY shadowsocks.json /etc/shadowsocks-libev/config.json
-COPY kcptun.json /etc/kcptun.json
-COPY entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint.sh
 
 #安装官方预编译Nginx
 RUN wget -q https://nginx.org/keys/nginx_signing.key --no-check-certificate && \
@@ -38,6 +33,14 @@ RUN wget -q https://nginx.org/keys/nginx_signing.key --no-check-certificate && \
 	
 #生成密钥对
 RUN openssl req -new -x509 -days 3650 -nodes -subj "/C=CA/ST=CA/L=CA/O=CA/OU=CA/CN=CA"  -out /etc/nginx/cert.pem -keyout /etc/nginx/key.pem
+
+#复制配置文件
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY shadowsocks.json /etc/shadowsocks-libev/config.json
+COPY kcptun-ss.json /etc/kcptun-ss.json
+COPY kcptun-nginx.json /etc/kcptun-nginx.json
+COPY entrypoint.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 EXPOSE 22 443 998 999
