@@ -1,5 +1,5 @@
 {
-    "listen":":998",
+    "listen":":433",
     "target":"127.0.0.1:443",
     "crypt": "none",
     "mode":"fast",
