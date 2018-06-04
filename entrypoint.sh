@@ -4,13 +4,14 @@
 
 /etc/init.d/ssh restart
 
-#nginx -t
+nginx -t
 
-#nginx
+nginx
 
 /etc/init.d/shadowsocks-libev start
 
-#nohup kcptun -c /etc/kcptun.json &
-kcptun -c /etc/kcptun.json
+nohup kcptun -c /etc/kcptun-nginx.json &
+
+kcptun -c /etc/kcptun-ss.json
 #wc
 #tail -f /var/log/nginx/error.log > /dev/null
