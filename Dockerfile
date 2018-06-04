@@ -43,6 +43,6 @@ COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-EXPOSE 22 443 998 999
+EXPOSE 22 433 443 998 999
 
 CMD ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
