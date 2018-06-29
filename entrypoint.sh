@@ -16,11 +16,11 @@ nohup kcptun -c /etc/kcptun-ss.json &
 
 while :
 do
-  netstat -unlp |grep 433
+  netstat -unlp |grep 433 > /dev/null
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-nginx.json &
   fi
-  netstat -unlp |grep 998
+  netstat -unlp |grep 998 > /dev/null
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-ss.json &
   fi
