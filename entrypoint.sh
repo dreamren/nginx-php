@@ -12,6 +12,20 @@ nginx
 
 nohup kcptun -c /etc/kcptun-nginx.json &
 
-kcptun -c /etc/kcptun-ss.json
+nohup kcptun -c /etc/kcptun-ss.json &
+
+while :
+do
+  netstat -unlp |grep 433
+  if [ $? -ne 0 ];then
+    nohup kcptun -c /etc/kcptun-nginx.json &
+  fi
+  netstat -unlp |grep 998
+  if [ $? -ne 0 ];then
+    nohup kcptun -c /etc/kcptun-ss.json &
+  fi
+  sleep 30
+done
+
 #wc
 #tail -f /var/log/nginx/error.log > /dev/null
