@@ -24,7 +24,7 @@ do
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-ss.json &
   fi
-  sleep 30
+  sleep 10
 done
 
 #wc
