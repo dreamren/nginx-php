@@ -20,7 +20,7 @@ do
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-nginx.json &
   fi
-  netstat -unlp |grep 998 > /dev/null
+  netstat -unlp |grep 999 > /dev/null
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-ss.json &
   fi
