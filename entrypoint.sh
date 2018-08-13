@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 #wget https://dream.ren/down/other/nginx_docker.conf -O /etc/nginx/nginx.conf --no-check-certificate
 
 /etc/init.d/ssh restart
