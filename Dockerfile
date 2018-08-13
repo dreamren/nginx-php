@@ -35,7 +35,6 @@ RUN wget -q https://nginx.org/keys/nginx_signing.key --no-check-certificate && \
 RUN openssl req -new -x509 -days 3650 -nodes -subj "/C=CA/ST=CA/L=CA/O=CA/OU=CA/CN=CA"  -out /etc/nginx/cert.pem -keyout /etc/nginx/key.pem
 
 #修改时区
-COPY /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "export TZ=’Asia/Shanghai’" >> /etc/profile
 
 #复制配置文件
