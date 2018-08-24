@@ -1,12 +1,11 @@
 FROM debian:stretch-slim
 
-LABEL maintainer="OpenSSH & Nginx & Shadowsocks-libev & Kcptun-server <admin@dream.ren>"
+LABEL maintainer="OpenSSH & Nginx & Kcptun-server <admin@dream.ren>"
 
-#安装预编译Shadowsocks-libev、OpenSSH
+#安装预编译OpenSSH
 RUN sh -c 'printf "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/stretch-backports.list' 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y openssh-server openssl nload wget iputils-ping dnsutils net-tools gnupg1 apt-transport-https ca-certificates && \
-	apt-get -t stretch-backports install shadowsocks-libev -y && \
 	echo "alias wget='wget --no-check-certificate'" >>/root/.bashrc
 
 #配置远程登录
@@ -39,8 +38,6 @@ RUN echo "export TZ=’Asia/Shanghai’" >> /etc/profile
 
 #复制配置文件
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY shadowsocks.json /etc/shadowsocks-libev/config.json
-COPY kcptun-ss.json /etc/kcptun-ss.json
 COPY kcptun-nginx.json /etc/kcptun-nginx.json
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
