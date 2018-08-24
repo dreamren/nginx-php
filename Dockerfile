@@ -38,11 +38,11 @@ RUN echo "export TZ=’Asia/Shanghai’" >> /etc/profile
 
 #复制配置文件
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY kcptun-nginx.json /etc/kcptun-nginx.json
+COPY kcptun.json /etc/kcptun.json
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 #ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-EXPOSE 22 433 443 998 999
+EXPOSE 22 433 443
 
 CMD ["/bin/bash", "/usr/local/bin/entrypoint.sh"]
