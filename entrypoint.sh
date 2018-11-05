@@ -6,9 +6,6 @@ cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 /etc/init.d/ssh restart
 
-#nginx -t
-
-#nginx
 
 /etc/init.d/shadowsocks-libev start
 
@@ -26,4 +23,3 @@ do
 done
 
 #wc
-#tail -f /var/log/nginx/error.log > /dev/null
