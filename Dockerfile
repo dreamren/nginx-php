@@ -5,7 +5,7 @@ LABEL maintainer="OpenSSH & Shadowsocks-libev & Kcptun-server <admin@dream.ren>"
 #安装预编译Shadowsocks-libev、OpenSSH
 RUN sh -c 'printf "deb http://deb.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/stretch-backports.list' 
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y openssh-server openssl nload wget iputils-ping dnsutils net-tools && \
+    apt-get install -y openssh-server openssl nload wget iputils-ping net-tools && \
 	apt-get -t stretch-backports install shadowsocks-libev -y && \
 	echo "alias wget='wget --no-check-certificate'" >>/root/.bashrc
 
