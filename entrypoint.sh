@@ -14,11 +14,7 @@ nohup kcptun -c /etc/kcptun-ss.json &
 
 while :
 do
-  pgrep kcptun > /dev/null
-  if [ $? -ne 0 ];then
-    nohup kcptun -c /etc/kcptun-ss.json &
-  fi
-  sleep 10
+  kcptun -c /etc/kcptun-ss.json
 done
 
 #wc
