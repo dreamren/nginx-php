@@ -14,8 +14,7 @@ nohup kcptun -c /etc/kcptun-ss.json &
 
 while :
 do
-  fi
-  netstat -unlp |grep 999 > /dev/null
+  pgrep kcptun > /dev/null
   if [ $? -ne 0 ];then
     nohup kcptun -c /etc/kcptun-ss.json &
   fi
